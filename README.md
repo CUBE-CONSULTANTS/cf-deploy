@@ -1,9 +1,10 @@
 # CF CLI Action
+
 Deploy to Cloud Foundry and manage your apps and services using the CF CLI v.8 easily with this GitHub Action.
 
 # Pourpose
 
-This action is intended to be used for build, if necessary, and deploy to Cloud Foundry with the CF CLI.
+This action is intended to be used for build, if necessary, and deploy to SAP BTP Cloud Foundry Runtime with the CF CLI.
 
 ## 1. Build your App
 
@@ -17,24 +18,16 @@ The action executes the `cf` command with the provided arguments. The command to
 
 # Example Workflow
 ```
-name: Deploy to Cloud Foundry
+name: Build & Deploy to Cloud Foundry
 
 on:
   push:
     branches:
     - master
 
-jobs:
-  build:
-    runs-on: ubuntu-18.04
-    # Build your app here
-
-  deploy:
-    runs-on: ubuntu-18.04
-    needs: build
-    
+jobs:    
     steps:
-    - uses: citizen-of-planet-earth/cf-cli-action@master
+    - uses: CUBE-CONSULTANTS/cf-deploy@v0.0.1@master
       with:
         cf_api: https://api.my-cloud-foundry.com
         cf_username: ${{ secrets.CF_USER }}
@@ -46,17 +39,17 @@ jobs:
 
 # Secrects
 
-Copy my.secret.sample to my.secret and fill it with your credentials.
+Copy `my.secret.sample` to `my.secret` and fill it with your credentials.
 
 `cp my.secret.sample my.secret`
 
 ## Inputs
 
-CF_API=
-CF_USER=
-CF_PASSWORD=
-CF_ORG=
-CF_SPACE=
+- CF_API=
+- CF_USER=
+- CF_PASSWORD=
+- CF_ORG=
+- CF_SPACE=
 
 # Run in local
 
