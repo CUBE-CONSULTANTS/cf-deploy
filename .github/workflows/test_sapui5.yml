@@ -9,7 +9,7 @@ jobs:
   test-sapui5:
     runs-on: ubuntu-latest
     steps:
-    - uses: CUBE-CONSULTANTS/cf-deploy@v0.0.1
+    - uses: CUBE-CONSULTANTS/cf-deploy@v0.0.2
       with:
         cf_api: ${{ secrets.CF_API }}
         cf_username: ${{ secrets.CF_USER }}
